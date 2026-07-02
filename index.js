@@ -1,7 +1,7 @@
 const { makeWASocket, useMultiFileAuthState } = require('@whiskeysockets/baileys');
 const TelegramBot = require('node-telegram-bot-api');
 
-const tgBot = new TelegramBot('8875447814:AAFWdMN5Wot8AGt6u5pn_fP53IkofxcT7CE', { polling: true });
+const tgBot = new TelegramBot('process.env.TELEGRAM_TOKEN', { polling: true });
 
 tgBot.onText(/\/start/, async (msg) => {
     const { state, saveCreds } = await useMultiFileAuthState(`./sessions/${msg.chat.id}`);
